@@ -19,13 +19,15 @@ public:
 
 private slots:
 
-    void on_mainPatient_clicked();
+    void on_btnPatientPage_clicked();
 
-    void on_mainDoctor_clicked();
+    void on_btnDoctorPage_clicked();
 
-    void on_secondPageButton_clicked();
+    void on_btnMainPage_clicked();
 
-    void on_thirdPageButton_clicked();
+   // void on_thirdPageButton_clicked();
+
+    void on_addPatient_clicked();
 
 private:
     Ui::MainWindow *ui;

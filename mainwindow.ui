@@ -24,36 +24,8 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
-    <widget class="QWidget" name="page_3">
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>40</y>
-        <width>91</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Doctor  Page</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="thirdPageButton">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>160</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main menu</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -68,7 +40,7 @@
        <string>Hospital Manager</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="firstPageButton">
+     <widget class="QPushButton" name="patientPageButton">
       <property name="geometry">
        <rect>
         <x>220</x>
@@ -100,8 +72,8 @@
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>50</y>
-        <width>81</width>
+        <y>40</y>
+        <width>71</width>
         <height>20</height>
        </rect>
       </property>
@@ -109,11 +81,79 @@
        <string>Patient Page</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="secondPageButton">
+     <widget class="QPushButton" name="menuPageButton1">
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>140</y>
+        <y>310</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main menu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addPatientPageButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>100</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add Patient</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>160</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Search Patient</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>220</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Patients</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4"/>
+    <widget class="QWidget" name="page_3">
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>40</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Doctor  Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="menuPageButton2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>160</y>
         <width>83</width>
         <height>29</height>
        </rect>

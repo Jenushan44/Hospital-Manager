@@ -17,6 +17,20 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+
+
+    void on_mainPatient_clicked();
+
+    void on_mainDoctor_clicked();
+
+    void on_secondPageButton_clicked();
+
+    void on_thirdPageButton_clicked();
+
+
+
 private:
     Ui::MainWindow *ui;
 };

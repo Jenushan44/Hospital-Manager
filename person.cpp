@@ -44,3 +44,4 @@ void Person::viewPerson(std::string fileName) {
     }
     file.close();
 }
+

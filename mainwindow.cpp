@@ -11,7 +11,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
     connect(ui->menuPageButton1, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
     connect(ui->menuPageButton2, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
-    connect(ui->addPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_addPatient_clicked);
+    connect(ui->menuPageButton3, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
+    connect(ui->menuPageButton4, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
+    connect(ui->menuPageButton5, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
+    connect(ui->addPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatient_clicked);
+    connect(ui->searchPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnSearchPatient_clicked);
+    connect(ui->viewPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatient_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +31,7 @@ void MainWindow::on_btnPatientPage_clicked()
 
 void MainWindow::on_btnDoctorPage_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_btnMainPage_clicked()
@@ -34,8 +39,17 @@ void MainWindow::on_btnMainPage_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_addPatient_clicked()
+void MainWindow::on_btnAddPatient_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+void MainWindow::on_btnSearchPatient_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_btnViewPatient_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}

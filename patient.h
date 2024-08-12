@@ -3,6 +3,9 @@
 
 #include <string>
 #include <person.h>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
 
 class Patient : public Person {
 public:

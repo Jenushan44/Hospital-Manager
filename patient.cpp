@@ -3,6 +3,9 @@
 #include <fstream>
 #include "person.h"
 #include "patient.h"
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
 
 void Patient::identification() {
     Person::personDetails();

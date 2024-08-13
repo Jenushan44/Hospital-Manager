@@ -12,7 +12,7 @@ void Patient::identification() {
     std::cout << "Please enter your health card number: ";
     std::cin >> healthCard;
 }
-
+/*
 void Patient::addPatient() {
     std::ofstream file("patient.txt", std::ios::app);
     file << "Health Card Number: " << healthCard << "\n";
@@ -60,5 +60,5 @@ void Patient::searchPatient() {
     }
     file.close();
 }
-
+*/
 

@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-20</x>
       <y>0</y>
       <width>731</width>
       <height>531</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label">
@@ -262,7 +262,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="firstNameLineEdit">
+     <widget class="QLineEdit" name="firstNamePatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -272,7 +272,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lastNameLineEdit">
+     <widget class="QLineEdit" name="lastNamePatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -282,7 +282,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="bloodTypeLineEdit">
+     <widget class="QLineEdit" name="bloodTypePatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -292,7 +292,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="dateOfBirthLineEdit">
+     <widget class="QLineEdit" name="dateOfBirthPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -302,7 +302,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="genderLineEdit">
+     <widget class="QLineEdit" name="genderPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -312,7 +312,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="addressLineEdit">
+     <widget class="QLineEdit" name="addressPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -322,7 +322,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="submitButton">
+     <widget class="QPushButton" name="submitPatientButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -335,7 +335,7 @@
        <string>Save</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="phoneNumberLineEdit">
+     <widget class="QLineEdit" name="phoneNumberPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -550,12 +550,12 @@
        <rect>
         <x>120</x>
         <y>80</y>
-        <width>101</width>
+        <width>131</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Doctor Card:</string>
+       <string>Doctor Id:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
@@ -601,7 +601,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>240</y>
+        <y>360</y>
         <width>121</width>
         <height>16</height>
        </rect>
@@ -614,7 +614,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>280</y>
+        <y>320</y>
         <width>111</width>
         <height>16</height>
        </rect>
@@ -627,7 +627,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>320</y>
+        <y>240</y>
         <width>101</width>
         <height>16</height>
        </rect>
@@ -636,7 +636,7 @@
        <string>Gender: </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_2">
+     <widget class="QLineEdit" name="doctorIdNumberLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -646,7 +646,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_3">
+     <widget class="QLineEdit" name="lastNameDoctorLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -656,7 +656,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_4">
+     <widget class="QLineEdit" name="dateOfBirthDoctorLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -666,7 +666,17 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_5">
+     <widget class="QLineEdit" name="addressDoctorLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>360</y>
+        <width>113</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="genderDoctorLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -676,7 +686,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_6">
+     <widget class="QLineEdit" name="phoneNumberDoctorLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -686,17 +696,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardInputText_7">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>280</y>
-        <width>113</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="healthCardInputText_8">
+     <widget class="QLineEdit" name="firstNameDoctorLineEdit">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -709,14 +709,50 @@
      <widget class="QPushButton" name="menuPageButton6">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>440</y>
+        <x>330</x>
+        <y>460</y>
         <width>83</width>
         <height>29</height>
        </rect>
       </property>
       <property name="text">
        <string>Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="submitDoctorButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>410</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>280</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Blood Type: </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="bloodTypeDoctorLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>280</y>
+        <width>113</width>
+        <height>28</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -792,7 +828,7 @@
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

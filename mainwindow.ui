@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label">
@@ -504,7 +504,7 @@
        <string>Main menu</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="addDoctorPageButton">
       <property name="geometry">
        <rect>
         <x>320</x>
@@ -820,6 +820,7 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_9"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

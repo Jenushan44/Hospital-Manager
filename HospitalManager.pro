@@ -10,18 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     dbManager.cpp \
-    doctor.cpp \
     main.cpp \
     mainwindow.cpp \
-    patient.cpp \
-    person.cpp
 
 HEADERS += \
     dbManager.h \
-    doctor.h \
     mainwindow.h \
-    patient.h \
-    person.h
 
 FORMS += \
     mainwindow.ui

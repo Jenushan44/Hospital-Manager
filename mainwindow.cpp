@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->patientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnPatientPage_clicked);
-    connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
     connect(ui->menuPageButton1, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
     connect(ui->menuPageButton2, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
     connect(ui->menuPageButton3, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
@@ -20,11 +18,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->menuPageButton5, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
     connect(ui->menuPageButton6, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
     connect(ui->menuPageButton7, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
+
+    connect(ui->patientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnPatientPage_clicked);
     connect(ui->addPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatient_clicked);
     connect(ui->searchPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnSearchPatient_clicked);
     connect(ui->viewPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatient_clicked);
-
     connect(ui->submitPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatientInfo_clicked);
+
+    connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
+    connect(ui->addDoctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctor_clicked);
     connect(ui->submitDoctorButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctorInfo_clicked);
 
 }
@@ -37,11 +39,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnPatientPage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::on_btnDoctorPage_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_btnMainPage_clicked()
@@ -62,6 +59,17 @@ void MainWindow::on_btnSearchPatient_clicked()
 void MainWindow::on_btnViewPatient_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_btnDoctorPage_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+void MainWindow::on_btnAddDoctor_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
 }
 
 void MainWindow::on_btnAddPatientInfo_clicked()
@@ -121,7 +129,7 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     qDebug() << "Phone Number: " << phoneNumber;
 
 
-    if (m_dbManager.addPatient(doctorIdNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
+    if (m_dbManager.addDoctor(doctorIdNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
         QMessageBox::information(this, "Success", "Doctor successfully added!");
     } else {
         QMessageBox::warning(this, "Failiure", "Failed to add doctor");
@@ -136,4 +144,7 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     ui->addressDoctorLineEdit->clear();
     ui->phoneNumberDoctorLineEdit->clear();
 }
+
+
+
 

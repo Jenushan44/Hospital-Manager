@@ -25,10 +25,9 @@ private slots:
     void on_btnAddPatient_clicked();
     void on_btnSearchPatient_clicked();
     void on_btnViewPatient_clicked();
-
     void on_btnAddPatientInfo_clicked();
-
     void on_btnAddDoctorInfo_clicked();
+    void on_btnAddDoctor_clicked();
 
 private:
     Ui::MainWindow *ui;

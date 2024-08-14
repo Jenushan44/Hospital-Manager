@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label">
@@ -252,7 +252,7 @@
        <string>Address: </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCard">
+     <widget class="QLineEdit" name="healthCardNumberLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -262,7 +262,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientFirstNameInput">
+     <widget class="QLineEdit" name="firstNameLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -272,7 +272,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientLastNameInput">
+     <widget class="QLineEdit" name="lastNameLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -282,7 +282,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientBloodTypeInput">
+     <widget class="QLineEdit" name="bloodTypeLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -292,7 +292,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientBirthdayInput">
+     <widget class="QLineEdit" name="dateOfBirthLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -302,7 +302,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientGenderInput">
+     <widget class="QLineEdit" name="genderLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -312,7 +312,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientAddressInput">
+     <widget class="QLineEdit" name="addressLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -322,7 +322,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="submitButton">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -335,7 +335,7 @@
        <string>Save</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="patientPhoneNumberInput">
+     <widget class="QLineEdit" name="phoneNumberLineEdit">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -350,7 +350,7 @@
        <rect>
         <x>100</x>
         <y>350</y>
-        <width>91</width>
+        <width>121</width>
         <height>16</height>
        </rect>
       </property>
@@ -386,7 +386,7 @@
        <string>Main Menu</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="on_viewPatientDB_clicked">
+     <widget class="QPushButton" name="pushButton_5">
       <property name="geometry">
        <rect>
         <x>570</x>

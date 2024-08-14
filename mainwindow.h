@@ -26,6 +26,8 @@ private slots:
     void on_btnSearchPatient_clicked();
     void on_btnViewPatient_clicked();
 
+    void on_btnAddPatientInfo_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

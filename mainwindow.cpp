@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->addDoctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctor_clicked);
     connect(ui->submitDoctorButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctorInfo_clicked);
 
+    connect(ui->viewAllPatientsButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -66,10 +67,14 @@ void MainWindow::on_btnDoctorPage_clicked()
     ui->stackedWidget->setCurrentIndex(5);
 }
 
-
 void MainWindow::on_btnAddDoctor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_btnViewPatients_clicked()
+{
+    m_dbManager.viewPatient(ui->tableWidget);
 }
 
 void MainWindow::on_btnAddPatientInfo_clicked()
@@ -91,7 +96,6 @@ void MainWindow::on_btnAddPatientInfo_clicked()
     qDebug() << "Address: " << address;
     qDebug() << "Phone Number: " << phoneNumber;
 
-
     if (m_dbManager.addPatient(healthCardNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
         QMessageBox::information(this, "Success", "Patient successfully added!");
     } else {
@@ -107,7 +111,6 @@ void MainWindow::on_btnAddPatientInfo_clicked()
     ui->addressPatientLineEdit->clear();
     ui->phoneNumberPatientLineEdit->clear();
 }
-
 
 void MainWindow::on_btnAddDoctorInfo_clicked()
 {
@@ -128,7 +131,6 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     qDebug() << "Address: " << address;
     qDebug() << "Phone Number: " << phoneNumber;
 
-
     if (m_dbManager.addDoctor(doctorIdNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
         QMessageBox::information(this, "Success", "Doctor successfully added!");
     } else {
@@ -144,7 +146,3 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     ui->addressDoctorLineEdit->clear();
     ui->phoneNumberDoctorLineEdit->clear();
 }
-
-
-
-

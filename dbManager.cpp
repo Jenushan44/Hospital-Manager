@@ -34,6 +34,49 @@ bool DbManager::addPatient(const QString& healthCardNumber, const QString& first
     }
 }
 
+bool DbManager::viewPatient(QTableWidget* tableWidget) {
+    QSqlQuery query("SELECT * FROM patients");
+
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setColumnCount(8);
+
+    QStringList headers;
+    headers << "Health Card" << "First Name" << "Last Name" << "Birthday" << "Gender" << "Blood Type" << "Address" << "Phone Number";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString healthCardNumber = query.value("health_card_number").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString bloodType = query.value("blood_type").toString();
+        QString address = query.value("address").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(healthCardNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(firstName));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(lastName));
+        tableWidget->setItem(row, 3, new QTableWidgetItem(dateOfBirth));
+        tableWidget->setItem(row, 4, new QTableWidgetItem(gender));
+        tableWidget->setItem(row, 5, new QTableWidgetItem(bloodType));
+        tableWidget->setItem(row, 6, new QTableWidgetItem(address));
+        tableWidget->setItem(row, 7, new QTableWidgetItem(phoneNumber));
+
+        row++;
+    }
+    return true;
+}
+
 bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& address, const QString& phoneNumber) {
 
     QSqlQuery query;

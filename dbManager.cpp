@@ -77,6 +77,65 @@ bool DbManager::viewPatient(QTableWidget* tableWidget) {
     return true;
 }
 
+bool DbManager::searchPatient(QTableWidget* tableWidget, const QString& healthCardNumber) {
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM patients WHERE healthCardNumber = :healthCardNumber");
+    query.bindValue(":healthCardNumber", healthCardNumber);
+
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while (query.next()) {
+        tableWidget->insertRow(row);
+
+        for (int col = 0; col < query.record().count(); col++) {
+            QTableWidgetItem* item = new QTableWidgetItem(query.value(col).toString());
+            tableWidget->setItem(row, col, item);
+        }
+        row++;
+    }
+    return (row > 0);
+    /*
+    QStringList headers;
+    headers << "Health Card" << "First Name" << "Last Name" << "Birthday" << "Gender" << "Blood Type" << "Address" << "Phone Number";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString healthCardNumber = query.value("health_card_number").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString bloodType = query.value("blood_type").toString();
+        QString address = query.value("address").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(healthCardNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(firstName));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(lastName));
+        tableWidget->setItem(row, 3, new QTableWidgetItem(dateOfBirth));
+        tableWidget->setItem(row, 4, new QTableWidgetItem(gender));
+        tableWidget->setItem(row, 5, new QTableWidgetItem(bloodType));
+        tableWidget->setItem(row, 6, new QTableWidgetItem(address));
+        tableWidget->setItem(row, 7, new QTableWidgetItem(phoneNumber));
+
+        row++;
+    }
+    return true;
+*/
+}
+
 bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& address, const QString& phoneNumber) {
 
     QSqlQuery query;

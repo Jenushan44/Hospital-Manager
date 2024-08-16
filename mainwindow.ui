@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>730</width>
-    <height>557</height>
+    <width>929</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,53 +17,34 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>150</x>
       <y>0</y>
-      <width>731</width>
-      <height>531</height>
+      <width>781</width>
+      <height>1031</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_29">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>30</y>
-        <width>131</width>
-        <height>20</height>
+        <x>90</x>
+        <y>0</y>
+        <width>671</width>
+        <height>81</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Hospital Manager</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="patientPageButton">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>110</y>
-        <width>131</width>
-        <height>29</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">font: 600 24pt &quot;Sitka Heading Semibold&quot;;
+color:  white;</string>
       </property>
       <property name="text">
-       <string>Patient Manager</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="doctorPageButton">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>170</y>
-        <width>121</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Doctor Manager</string>
+       <string>Welcome to the Hospital Management System</string>
       </property>
      </widget>
     </widget>
@@ -71,36 +52,27 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>40</y>
-        <width>81</width>
-        <height>20</height>
+        <x>240</x>
+        <y>20</y>
+        <width>271</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Patient Page</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="menuPageButton1">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>250</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;
+</string>
       </property>
       <property name="text">
-       <string>Main Menu</string>
+       <string>Patient Manager</string>
       </property>
      </widget>
      <widget class="QPushButton" name="addPatientPageButton">
       <property name="geometry">
        <rect>
         <x>310</x>
-        <y>100</y>
-        <width>80</width>
-        <height>24</height>
+        <y>90</y>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -110,10 +82,10 @@
      <widget class="QPushButton" name="searchPatientPageButton">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>310</x>
         <y>150</y>
-        <width>101</width>
-        <height>24</height>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -123,10 +95,10 @@
      <widget class="QPushButton" name="viewPatientPageButton">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>200</y>
-        <width>101</width>
-        <height>24</height>
+        <x>310</x>
+        <y>210</y>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -135,27 +107,17 @@
      </widget>
     </widget>
     <widget class="QWidget" name="page_4">
-     <widget class="QPushButton" name="menuPageButton3">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>460</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>20</y>
-        <width>81</width>
-        <height>16</height>
+        <x>290</x>
+        <y>10</y>
+        <width>191</width>
+        <height>71</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
       </property>
       <property name="text">
        <string>Add Patient</string>
@@ -165,99 +127,99 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>70</y>
+        <y>90</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Health Card:</string>
+       <string>Health Card</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>110</y>
+        <y>150</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>First Name:</string>
+       <string>First Name</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>150</y>
+        <y>210</y>
         <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Last Name: </string>
+       <string>Last Name</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>190</y>
+        <y>270</y>
         <width>81</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Birthday: </string>
+       <string>Birthday</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>230</y>
+        <y>330</y>
         <width>71</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Gender: </string>
+       <string>Gender </string>
       </property>
      </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>270</y>
+        <y>390</y>
         <width>111</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Blood Type: </string>
+       <string>Blood Type</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>310</y>
+        <x>440</x>
+        <y>90</y>
         <width>81</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Address: </string>
+       <string>Address</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="healthCardNumberLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>70</y>
-        <width>113</width>
+        <x>100</x>
+        <y>110</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -265,9 +227,9 @@
      <widget class="QLineEdit" name="firstNamePatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>110</y>
-        <width>113</width>
+        <x>100</x>
+        <y>170</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -275,9 +237,9 @@
      <widget class="QLineEdit" name="lastNamePatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>150</y>
-        <width>113</width>
+        <x>100</x>
+        <y>230</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -285,9 +247,9 @@
      <widget class="QLineEdit" name="bloodTypePatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>270</y>
-        <width>113</width>
+        <x>100</x>
+        <y>410</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -295,9 +257,9 @@
      <widget class="QLineEdit" name="dateOfBirthPatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>190</y>
-        <width>113</width>
+        <x>100</x>
+        <y>290</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -305,9 +267,9 @@
      <widget class="QLineEdit" name="genderPatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>230</y>
-        <width>113</width>
+        <x>100</x>
+        <y>350</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -315,9 +277,9 @@
      <widget class="QLineEdit" name="addressPatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>310</y>
-        <width>113</width>
+        <x>440</x>
+        <y>110</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -325,10 +287,10 @@
      <widget class="QPushButton" name="submitPatientButton">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>400</y>
-        <width>83</width>
-        <height>29</height>
+        <x>360</x>
+        <y>470</y>
+        <width>111</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -338,9 +300,9 @@
      <widget class="QLineEdit" name="phoneNumberPatientLineEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>350</y>
-        <width>113</width>
+        <x>440</x>
+        <y>170</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -348,14 +310,14 @@
      <widget class="QLabel" name="label_25">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>350</y>
+        <x>440</x>
+        <y>150</y>
         <width>121</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Phone Number: </string>
+       <string>Phone Number</string>
       </property>
      </widget>
     </widget>
@@ -363,35 +325,25 @@
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>250</x>
         <y>30</y>
-        <width>111</width>
-        <height>20</height>
+        <width>261</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
       </property>
       <property name="text">
        <string>Search Patients</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="menuPageButton4">
+     <widget class="QPushButton" name="searchPatientsButton">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>430</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
+        <x>630</x>
         <y>120</y>
-        <width>83</width>
+        <width>101</width>
         <height>29</height>
        </rect>
       </property>
@@ -404,7 +356,7 @@
        <rect>
         <x>80</x>
         <y>120</y>
-        <width>241</width>
+        <width>191</width>
         <height>20</height>
        </rect>
       </property>
@@ -412,12 +364,12 @@
        <string>Please enter patients Health Card: </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="viewPatientHealthCardInput">
+     <widget class="QLineEdit" name="healthCardNumberSearchLineEdit">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>280</x>
         <y>120</y>
-        <width>211</width>
+        <width>331</width>
         <height>28</height>
        </rect>
       </property>
@@ -435,17 +387,14 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="viewPatientLastNameOutput">
+     <widget class="QTableWidget" name="patientResultTableWidget">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>230</y>
-        <width>63</width>
-        <height>20</height>
+        <x>70</x>
+        <y>180</y>
+        <width>661</width>
+        <height>101</height>
        </rect>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
     </widget>
@@ -453,49 +402,39 @@
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>270</x>
         <y>20</y>
-        <width>101</width>
-        <height>20</height>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>View Patients</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewAllPatientsButton">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>470</y>
+        <width>111</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="text">
        <string>View Patients</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="menuPageButton5">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>480</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="viewAllPatientsButton">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>440</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>View</string>
-      </property>
-     </widget>
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
         <x>45</x>
-        <y>50</y>
-        <width>681</width>
-        <height>381</height>
+        <y>80</y>
+        <width>691</width>
+        <height>371</height>
        </rect>
       </property>
      </widget>
@@ -504,53 +443,56 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>250</x>
         <y>30</y>
-        <width>121</width>
-        <height>20</height>
+        <width>271</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
       </property>
       <property name="text">
        <string>Doctor  Manager</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="menuPageButton2">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>190</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main menu</string>
       </property>
      </widget>
      <widget class="QPushButton" name="addDoctorPageButton">
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>90</y>
-        <width>83</width>
-        <height>29</height>
+        <y>100</y>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Add Doctor</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="searchDoctorButton">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>140</y>
+        <x>320</x>
+        <y>160</y>
         <width>121</width>
-        <height>29</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Search Doctor</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewAllDoctorsButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>220</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Doctors</string>
       </property>
      </widget>
     </widget>
@@ -558,11 +500,14 @@
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>290</x>
         <y>30</y>
-        <width>81</width>
-        <height>16</height>
+        <width>181</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
       </property>
       <property name="text">
        <string>Add Doctor</string>
@@ -571,60 +516,60 @@
      <widget class="QLabel" name="label_16">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>80</y>
-        <width>131</width>
+        <x>100</x>
+        <y>90</y>
+        <width>51</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Doctor Id:</string>
+       <string>Doctor Id</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>120</y>
+        <x>100</x>
+        <y>150</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>First Name:</string>
+       <string>First Name</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>160</y>
+        <x>100</x>
+        <y>210</y>
         <width>101</width>
-        <height>16</height>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Last Name: </string>
+       <string>Last Name</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_19">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>200</y>
+        <x>100</x>
+        <y>270</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Birthday: </string>
+       <string>Birthday</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_20">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>360</y>
+        <x>430</x>
+        <y>90</y>
         <width>121</width>
         <height>16</height>
        </rect>
@@ -636,35 +581,35 @@
      <widget class="QLabel" name="label_21">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>320</y>
-        <width>111</width>
+        <x>430</x>
+        <y>150</y>
+        <width>121</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Phone Number: </string>
+       <string>Phone Number </string>
       </property>
      </widget>
      <widget class="QLabel" name="label_22">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>240</y>
+        <x>100</x>
+        <y>330</y>
         <width>101</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Gender: </string>
+       <string>Gender</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="doctorIdNumberLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>80</y>
-        <width>113</width>
+        <x>100</x>
+        <y>110</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -672,9 +617,9 @@
      <widget class="QLineEdit" name="lastNameDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>160</y>
-        <width>113</width>
+        <x>100</x>
+        <y>230</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -682,9 +627,9 @@
      <widget class="QLineEdit" name="dateOfBirthDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>200</y>
-        <width>113</width>
+        <x>100</x>
+        <y>290</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -692,9 +637,9 @@
      <widget class="QLineEdit" name="addressDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>360</y>
-        <width>113</width>
+        <x>430</x>
+        <y>110</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -702,9 +647,9 @@
      <widget class="QLineEdit" name="genderDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>240</y>
-        <width>113</width>
+        <x>100</x>
+        <y>350</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -712,9 +657,9 @@
      <widget class="QLineEdit" name="phoneNumberDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>320</y>
-        <width>113</width>
+        <x>430</x>
+        <y>170</y>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -722,59 +667,46 @@
      <widget class="QLineEdit" name="firstNameDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>120</y>
-        <width>113</width>
+        <x>100</x>
+        <y>170</y>
+        <width>241</width>
         <height>24</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="menuPageButton6">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>460</y>
-        <width>83</width>
-        <height>29</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
       </property>
      </widget>
      <widget class="QPushButton" name="submitDoctorButton">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>410</y>
-        <width>83</width>
-        <height>29</height>
+        <x>360</x>
+        <y>460</y>
+        <width>111</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Submit</string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_26">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>280</y>
+        <x>100</x>
+        <y>390</y>
         <width>101</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Blood Type: </string>
+       <string>Blood Type </string>
       </property>
      </widget>
      <widget class="QLineEdit" name="bloodTypeDoctorLineEdit">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>280</y>
-        <width>113</width>
-        <height>28</height>
+        <x>100</x>
+        <y>410</y>
+        <width>241</width>
+        <height>21</height>
        </rect>
       </property>
      </widget>
@@ -783,11 +715,14 @@
      <widget class="QLabel" name="label_23">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>30</y>
-        <width>111</width>
-        <height>20</height>
+        <x>260</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
       </property>
       <property name="text">
        <string>Search Doctors</string>
@@ -796,9 +731,9 @@
      <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>110</y>
-        <width>291</width>
+        <x>80</x>
+        <y>120</y>
+        <width>311</width>
         <height>20</height>
        </rect>
       </property>
@@ -810,17 +745,17 @@
       <property name="geometry">
        <rect>
         <x>330</x>
-        <y>110</y>
-        <width>211</width>
-        <height>28</height>
+        <y>120</y>
+        <width>301</width>
+        <height>31</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_4">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>110</y>
+        <x>650</x>
+        <y>120</y>
         <width>83</width>
         <height>29</height>
        </rect>
@@ -829,21 +764,129 @@
        <string>Search</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="menuPageButton7">
+     <widget class="QTableWidget" name="tableWidget_2">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>450</y>
-        <width>83</width>
-        <height>29</height>
+        <x>80</x>
+        <y>190</y>
+        <width>651</width>
+        <height>101</height>
        </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_9"/>
+    <widget class="QWidget" name="page_9">
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>30</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>View Doctors</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>90</y>
+        <width>681</width>
+        <height>361</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>470</y>
+        <width>111</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_27">
+    <property name="geometry">
+     <rect>
+      <x>-2</x>
+      <y>-15</y>
+      <width>151</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(42, 42, 42);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="patientPageButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>150</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Patient Manager</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="doctorPageButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>220</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Doctor Manager</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_28">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/res/toolbarLogo.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="menuPageButton1">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Main Menu</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -851,12 +894,11 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>730</width>
+     <width>929</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

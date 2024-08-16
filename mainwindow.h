@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QStackedWidget>
+#include <QMessageBox>
 #include "dbManager.h"
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,13 @@ private slots:
     void on_btnAddDoctorInfo_clicked();
     void on_btnAddDoctor_clicked();
     void on_btnViewPatients_clicked();
+
+
+    void on_searchPatientsButton_clicked();
+
+    void on_searchDoctor_clicked();
+
+    void on_viewDoctor_clicked();
 
 private:
     Ui::MainWindow *ui;

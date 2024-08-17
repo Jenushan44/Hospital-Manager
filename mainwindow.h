@@ -6,6 +6,7 @@
 #include <QStackedWidget>
 #include <QMessageBox>
 #include "dbManager.h"
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,13 +31,10 @@ private slots:
     void on_btnAddDoctorInfo_clicked();
     void on_btnAddDoctor_clicked();
     void on_btnViewPatients_clicked();
-
-
-    void on_searchPatientsButton_clicked();
-
     void on_searchDoctor_clicked();
-
     void on_viewDoctor_clicked();
+
+    void on_emergencyPage_clicked();
 
 private:
     Ui::MainWindow *ui;

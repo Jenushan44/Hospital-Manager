@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    DbManager dbManager("hospitalManagement.db");
+    DbManager dbManager("hospital.db");
     MainWindow w;
     w.show();
     return a.exec();

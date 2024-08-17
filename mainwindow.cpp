@@ -3,17 +3,14 @@
 #include <dbManager.h>
 #include <QSettings>
 #include <QMessageBox>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , m_dbManager("C:\\Users\\jenus\\Downloads\\HospitalManager\\HospitalManager.db")
+    , m_dbManager("C:\\Users\\jenus\\Downloads\\HospitalManager\\hospital.db")
 {
     ui->setupUi(this);
-
-    QPixmap pix1("C:/Users/jenus/Downloads/HospitalManager/MainWindowPicture.jpg");
-    QPixmap pix2("C:/Users/jenus/Downloads/HospitalManager/logo.png");
-
 
     connect(ui->menuPageButton1, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
 
@@ -23,13 +20,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->searchPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnSearchPatient_clicked);
     connect(ui->viewPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatient_clicked);
     connect(ui->submitPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatientInfo_clicked);
-    connect(ui->searchPatientsButton, &QPushButton::clicked, this, &MainWindow::on_searchPatientsButton_clicked);
+    connect(ui->viewAllPatientsButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
 
     connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
     connect(ui->addDoctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctor_clicked);
     connect(ui->searchDoctorButton, &QPushButton::clicked, this, &MainWindow::on_searchDoctor_clicked);
     connect(ui->viewAllDoctorsButton, &QPushButton::clicked, this, &MainWindow::on_viewDoctor_clicked);
     connect(ui->submitDoctorButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctorInfo_clicked);
+
+    connect(ui->emergencyPage, &QPushButton::clicked, this, &MainWindow::on_emergencyPage_clicked);
+
 
 }
 
@@ -78,7 +78,6 @@ void MainWindow::on_btnViewPatients_clicked()
     m_dbManager.viewPatient(ui->tableWidget);
 }
 
-
 void MainWindow::on_searchDoctor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
@@ -89,40 +88,32 @@ void MainWindow::on_viewDoctor_clicked()
     ui->stackedWidget->setCurrentIndex(8);
 }
 
-
-
-void MainWindow::on_searchPatientsButton_clicked()
+void MainWindow::on_emergencyPage_clicked()
 {
-    QString healthCardNumber = ui->healthCardNumberSearchLineEdit->text();
-
-    if (m_dbManager.searchPatient(ui->tableWidget, healthCardNumber)) {
-        QMessageBox::information(this, "Success", "Patient found");
-    } else {
-        QMessageBox::information(this, "Failiure", "No patients found");
-    }
+    ui->stackedWidget->setCurrentIndex(9);
 }
 
 
 void MainWindow::on_btnAddPatientInfo_clicked()
 {
-    QString healthCardNumber = ui->healthCardNumberLineEdit->text();
-    QString firstName = ui->firstNamePatientLineEdit->text();
-    QString lastName = ui->lastNamePatientLineEdit->text();
-    QString dateOfBirth = ui->dateOfBirthPatientLineEdit->text();
-    QString gender = ui->genderPatientLineEdit->text();
-    QString bloodType = ui->bloodTypePatientLineEdit->text();
-    QString address = ui->addressPatientLineEdit->text();
-    QString phoneNumber = ui->phoneNumberPatientLineEdit->text();
+    QString addHealthCardNumber = ui->healthCardNumberLineEdit->text();
+    QString addFirstName = ui->firstNamePatientLineEdit->text();
+    QString addLastName = ui->lastNamePatientLineEdit->text();
+    QString addDateOfBirth = ui->dateOfBirthPatientLineEdit->text();
+    QString addGender = ui->genderPatientLineEdit->text();
+    QString addBloodType = ui->bloodTypePatientLineEdit->text();
+    QString addAddress = ui->addressPatientLineEdit->text();
+    QString addPhoneNumber = ui->phoneNumberPatientLineEdit->text();
 
-    qDebug() << "Health Card Number: " << healthCardNumber;
-    qDebug() << "First name: " << firstName;
-    qDebug() << "Last name: " << lastName;
-    qDebug() << "Date of Birth: " << dateOfBirth;
-    qDebug() << "Gender: " << gender;
-    qDebug() << "Address: " << address;
-    qDebug() << "Phone Number: " << phoneNumber;
+    qDebug() << "Health Card Number: " << addHealthCardNumber;
+    qDebug() << "First name: " << addFirstName;
+    qDebug() << "Last name: " << addLastName;
+    qDebug() << "Date of Birth: " << addDateOfBirth;
+    qDebug() << "Gender: " << addGender;
+    qDebug() << "Address: " << addAddress;
+    qDebug() << "Phone Number: " << addPhoneNumber;
 
-    if (m_dbManager.addPatient(healthCardNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
+    if (m_dbManager.addPatient(addHealthCardNumber, addFirstName, addLastName, addDateOfBirth, addGender, addBloodType, addAddress, addPhoneNumber)) {
         QMessageBox::information(this, "Success", "Patient successfully added!");
     } else {
         QMessageBox::warning(this, "Failiure", "Failed to add patient");
@@ -172,6 +163,28 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     ui->addressDoctorLineEdit->clear();
     ui->phoneNumberDoctorLineEdit->clear();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

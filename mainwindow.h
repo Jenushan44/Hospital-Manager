@@ -36,6 +36,8 @@ private slots:
 
     void on_emergencyPage_clicked();
 
+    void on_btnAddEmergencyInfo_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->emergencyPage, &QPushButton::clicked, this, &MainWindow::on_emergencyPage_clicked);
 
+    connect(ui->addEmergencyInfoButton, &QPushButton::clicked, this, &MainWindow::on_btnAddEmergencyInfo_clicked);
 
 }
 
@@ -92,7 +93,6 @@ void MainWindow::on_emergencyPage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
 }
-
 
 void MainWindow::on_btnAddPatientInfo_clicked()
 {
@@ -176,30 +176,59 @@ void MainWindow::on_btnAddDoctorInfo_clicked()
     ui->phoneNumberDoctorLineEdit->clear();
 }
 
+void MainWindow::on_btnAddEmergencyInfo_clicked()
+{
+    QString emergencyHealthCardNumber = ui->healthCardNumberEmergencyLineEdit->text();
+    QString emergencyFirstName = ui->firstNameEmergencyLineEdit->text();
+    QString emergencyLastName = ui->lastNameEmergencyLineEdit->text();
+    QString emergencyDateOfBirth = ui->birthdayEmergencyLineEdit->text();
+    QString emergencyGender = ui->genderEmergencyLineEdit->text();
+    QString emergencyBloodType = ui->bloodTypeEmergencyLineEdit->text();
+    QString emergencyContactNumber = ui->emergencyContactNumberLineEdit->text();
+    QString emergencyContactRelation = ui->emergencyContactRelationLineEdit->text();
+    QString emergencyContactName = ui->emergencContactNameLineEdit->text();
+    QString emergencyReason = ui->emergencyReasonLineEdit->text();
+    QString emergencySymptoms = ui->emergencySymptomsLineEdit->text();
+    QString emergencyCurrentMedicalConditions = ui->currentMedicalConditionsLineEdit->text();
+    QString emergencyAllergies = ui->allergiesEmergencyLineEdit->text();
+    QString emergencyMedication = ui->medicationEmergencyLineEdit->text();
+    QString emergencyTime = ui->emergencyTimeLineEdit->text();
 
+    qDebug() << "Health Card Number: " << emergencyHealthCardNumber;
+    qDebug() << "First Name: " << emergencyFirstName;
+    qDebug() << "Last Name: " << emergencyLastName;
+    qDebug() << "Birthday: " << emergencyDateOfBirth;
+    qDebug() << "Gender: " << emergencyGender;
+    qDebug() << "Blood Type: " << emergencyBloodType;
+    qDebug() << "Emergency Contact Name: " << emergencyContactName;
+    qDebug() << "Emergency Contact Relation: " << emergencyContactRelation;
+    qDebug() << "Emergency Contact Phone Number: " << emergencyContactNumber;
+    qDebug() << "Emergency Reason: " << emergencyReason;
+    qDebug() << "Symptoms: " << emergencyHealthCardNumber;
+    qDebug() << "Current Medical Conditions: " << emergencyCurrentMedicalConditions;
+    qDebug() << "Allergies: " << emergencyAllergies;
+    qDebug() << "Medication: " << emergencyMedication;
+    qDebug() << "Emergency Time: " << emergencyTime;
 
+    if (m_dbManager.addEmergency(emergencyHealthCardNumber, emergencyFirstName, emergencyLastName, emergencyDateOfBirth, emergencyGender, emergencyBloodType, emergencyContactName, emergencyContactRelation, emergencyContactNumber, emergencyReason, emergencySymptoms, emergencyCurrentMedicalConditions, emergencyAllergies, emergencyMedication, emergencyTime)) {
+        QMessageBox::information(this, "Success", "Patient successfully added");
+    } else {
+        QMessageBox::warning(this, "Failiure", "Failed to add Patient");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ui->healthCardNumberEmergencyLineEdit->clear();
+    ui->firstNameEmergencyLineEdit->clear();
+    ui->lastNameEmergencyLineEdit->clear();
+    ui->birthdayEmergencyLineEdit->clear();
+    ui->genderEmergencyLineEdit->clear();
+    ui->bloodTypeEmergencyLineEdit->clear();
+    ui->emergencyContactNumberLineEdit->clear();
+    ui->emergencyContactRelationLineEdit->clear();
+    ui->emergencContactNameLineEdit->clear();
+    ui->emergencyReasonLineEdit->clear();
+    ui->emergencySymptomsLineEdit->clear();
+    ui->currentMedicalConditionsLineEdit->clear();
+    ui->allergiesEmergencyLineEdit->clear();
+    ui->medicationEmergencyLineEdit->clear();
+    ui->emergencyTimeLineEdit->clear();
+}

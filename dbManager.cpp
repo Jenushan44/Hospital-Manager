@@ -82,7 +82,6 @@ bool DbManager::viewPatient(QTableWidget* tableWidget) {
         tableWidget->setItem(row, 9, new QTableWidgetItem(insuranceCompany));
         tableWidget->setItem(row, 10, new QTableWidgetItem(primaryCarePhysician));
 
-
         row++;
     }
     return true;
@@ -107,6 +106,36 @@ bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& firstNam
         return true;
     } else {
         qDebug() << "Error: Doctor not added: " << query.lastError();
+        return false;
+    }
+}
+
+bool DbManager::addEmergency(const QString& healthCardNumber, const QString& firstName, const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& emergencyContactName, const QString& emergencyContactRelation, const QString& emergencyContactNumber, const QString& emergencyReason, const QString& symptoms, const QString& currentMedicalConditions, const QString& allergies, const QString& medication, const QString& emergencyTime) {
+
+    QSqlQuery queryAddEmergency;
+    queryAddEmergency.prepare("INSERT INTO emergencies (health_card_number, first_name, last_name, date_of_birth, gender, blood_type, emergency_contact_number, emergency_contact_relation, emergency_contact_name, emergency_reason, symptoms, current_medical_conditions, allergies, medication, emergency_time) "
+                  "VALUES(:healthCardNumber, :firstName, :lastName, :dateOfBirth, :gender, :bloodType, :emergencyContactNumber, :emergencyContactRelation, :emergencyContactName, :emergencyReason, :symptoms, :currentMedicalConditions, :allergies, :medication, :emergencyTime)");
+    queryAddEmergency.bindValue(":healthCardNumber", healthCardNumber);
+    queryAddEmergency.bindValue(":firstName", firstName);
+    queryAddEmergency.bindValue(":lastName", lastName);
+    queryAddEmergency.bindValue(":dateOfBirth", dateOfBirth);
+    queryAddEmergency.bindValue(":gender", gender);
+    queryAddEmergency.bindValue(":bloodType", bloodType);
+    queryAddEmergency.bindValue(":emergencyContactNumber", emergencyContactNumber);
+    queryAddEmergency.bindValue(":emergencyContactRelation", emergencyContactRelation);
+    queryAddEmergency.bindValue(":emergencyContactName", emergencyContactName);
+    queryAddEmergency.bindValue(":emergencyReason", emergencyReason);
+    queryAddEmergency.bindValue(":symptoms", symptoms);
+    queryAddEmergency.bindValue(":currentMedicalConditions", currentMedicalConditions);
+    queryAddEmergency.bindValue(":allergies", allergies);
+    queryAddEmergency.bindValue(":medication", medication);
+    queryAddEmergency.bindValue(":emergencyTime", emergencyTime);
+
+    if(queryAddEmergency.exec()) {
+        qDebug() << "Emergency Patient added successfully";
+        return true;
+    } else {
+        qDebug() << "Error: Emergency Patient not added" << queryAddEmergency.lastError().text();
         return false;
     }
 }

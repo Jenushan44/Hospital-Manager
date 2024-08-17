@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->submitPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatientInfo_clicked);
     connect(ui->viewAllPatientsButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
 
+    connect(ui->viewAllEmergenciesButton, &QPushButton::clicked, this, &MainWindow::on_btnViewEmergencies_clicked);
+
+
     connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
     connect(ui->addDoctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctor_clicked);
     connect(ui->searchDoctorButton, &QPushButton::clicked, this, &MainWindow::on_searchDoctor_clicked);
@@ -77,6 +80,11 @@ void MainWindow::on_btnAddDoctor_clicked()
 void MainWindow::on_btnViewPatients_clicked()
 {
     m_dbManager.viewPatient(ui->tableWidget);
+}
+
+void MainWindow::on_btnViewEmergencies_clicked()
+{
+    m_dbManager.viewEmergencyPatient(ui->tableWidgetEmergency);
 }
 
 void MainWindow::on_searchDoctor_clicked()
@@ -232,3 +240,6 @@ void MainWindow::on_btnAddEmergencyInfo_clicked()
     ui->medicationEmergencyLineEdit->clear();
     ui->emergencyTimeLineEdit->clear();
 }
+
+
+

@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -45,6 +45,29 @@ color:  white;</string>
       </property>
       <property name="text">
        <string>Welcome to the Hospital Management System</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidgetEmergency">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>230</y>
+        <width>711</width>
+        <height>351</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewAllEmergenciesButton">
+      <property name="geometry">
+       <rect>
+        <x>609</x>
+        <y>610</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Emergencies</string>
       </property>
      </widget>
     </widget>

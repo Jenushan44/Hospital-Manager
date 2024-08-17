@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -404,7 +404,7 @@ color:  white;</string>
        <string>Patient Contact</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="l1">
+     <widget class="QLineEdit" name="emailAddressPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>530</x>
@@ -560,7 +560,7 @@ color:  white;</string>
        <string>Insurance Company</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="l3">
+     <widget class="QLineEdit" name="insuranceCompanyPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -583,7 +583,7 @@ color:  white;</string>
        <string>Primary Care Physician</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="l3_2">
+     <widget class="QLineEdit" name="primaryCarePhysicianPatientLineEdit">
       <property name="geometry">
        <rect>
         <x>290</x>

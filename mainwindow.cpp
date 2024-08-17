@@ -104,16 +104,25 @@ void MainWindow::on_btnAddPatientInfo_clicked()
     QString addBloodType = ui->bloodTypePatientLineEdit->text();
     QString addAddress = ui->addressPatientLineEdit->text();
     QString addPhoneNumber = ui->phoneNumberPatientLineEdit->text();
+    QString addEmailAddress = ui->emailAddressPatientLineEdit->text();
+    QString addInsuranceCompany = ui->insuranceCompanyPatientLineEdit->text();
+    QString addPrimaryCarePhysician = ui->primaryCarePhysicianPatientLineEdit->text();
+
 
     qDebug() << "Health Card Number: " << addHealthCardNumber;
     qDebug() << "First name: " << addFirstName;
     qDebug() << "Last name: " << addLastName;
     qDebug() << "Date of Birth: " << addDateOfBirth;
     qDebug() << "Gender: " << addGender;
+    qDebug() << "Blood Type: " << addBloodType;
     qDebug() << "Address: " << addAddress;
     qDebug() << "Phone Number: " << addPhoneNumber;
+    qDebug() << "Email Address: " << addEmailAddress;
+    qDebug() << "Insurance Company: " << addInsuranceCompany;
+    qDebug() << "Primary Care Physician: " << addPrimaryCarePhysician;
 
-    if (m_dbManager.addPatient(addHealthCardNumber, addFirstName, addLastName, addDateOfBirth, addGender, addBloodType, addAddress, addPhoneNumber)) {
+
+    if (m_dbManager.addPatient(addHealthCardNumber, addFirstName, addLastName, addDateOfBirth, addGender, addBloodType, addAddress, addPhoneNumber, addEmailAddress, addInsuranceCompany, addPrimaryCarePhysician)) {
         QMessageBox::information(this, "Success", "Patient successfully added!");
     } else {
         QMessageBox::warning(this, "Failiure", "Failed to add patient");
@@ -127,6 +136,9 @@ void MainWindow::on_btnAddPatientInfo_clicked()
     ui->bloodTypePatientLineEdit->clear();
     ui->addressPatientLineEdit->clear();
     ui->phoneNumberPatientLineEdit->clear();
+    ui->emailAddressPatientLineEdit->clear();
+    ui->insuranceCompanyPatientLineEdit->clear();
+    ui->primaryCarePhysicianPatientLineEdit->clear();
 }
 
 void MainWindow::on_btnAddDoctorInfo_clicked()

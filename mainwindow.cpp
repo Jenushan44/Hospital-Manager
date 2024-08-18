@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->submitPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatientInfo_clicked);
     connect(ui->searchPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
     connect(ui->searchPatientHealthCardButton, &QPushButton::clicked, this, &MainWindow::on_searchPatientButton_clicked);
+    connect(ui->deletSearchPatient, &QPushButton::clicked, this, &MainWindow::on_deletePatientSearchButton_clicked);
 
     connect(ui->doctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnDoctorPage_clicked);
     connect(ui->addDoctorPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctor_clicked);
@@ -261,4 +262,23 @@ void MainWindow::on_deletePatientViewButton_clicked()
         QMessageBox::critical(this, "Delete", "Failed to delete patient");
     }
 }
+
+void MainWindow::on_deletePatientSearchButton_clicked()
+{
+    int selectedRow = ui->tableWidgetSearchPatient->currentRow();
+
+    if (selectedRow < 0) {
+        QMessageBox::warning(this, "Delete", "Please select a patient to delete");
+    }
+
+    QString healthCardNumber = ui->tableWidgetSearchPatient->item(selectedRow, 0)->text();
+
+    if (m_dbManager.deletePatient(healthCardNumber)) {
+        ui->tableWidgetSearchPatient->removeRow(selectedRow);
+        QMessageBox::information(this, "Delete", "Patient deleted successfully");
+    } else {
+        QMessageBox::critical(this, "Delete", "Failed to delete patient");
+    }
+}
+
 

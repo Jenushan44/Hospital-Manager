@@ -36,6 +36,7 @@ private slots:
     void on_emergencyPage_clicked();
     void on_btnAddEmergencyInfo_clicked();
     void on_btnViewEmergencies_clicked();
+    void on_searchPatientButton_clicked();
 
 private:
     Ui::MainWindow *ui;

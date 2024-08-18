@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -51,17 +51,17 @@ color:  white;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>230</y>
+        <y>160</y>
         <width>711</width>
-        <height>351</height>
+        <height>371</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="viewAllEmergenciesButton">
       <property name="geometry">
        <rect>
-        <x>609</x>
-        <y>610</y>
+        <x>610</x>
+        <y>540</y>
         <width>131</width>
         <height>41</height>
        </rect>
@@ -634,7 +634,7 @@ color:  white;</string>
        <string>Search Patients</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="searchPatientsButton">
+     <widget class="QPushButton" name="searchPatientHealthCardButton">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -660,7 +660,7 @@ color:  white;</string>
        <string>Please enter patients Health Card: </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="healthCardNumberSearchLineEdit">
+     <widget class="QLineEdit" name="healthCardSearchLineEdit">
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -683,7 +683,7 @@ color:  white;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QTableWidget" name="patientResultTableWidget">
+     <widget class="QTableWidget" name="tableWidgetSearchPatient">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -711,7 +711,7 @@ color:  white;</string>
        <string>View Patients</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="viewAllPatientsButton">
+     <widget class="QPushButton" name="searchPatientButton">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -724,7 +724,7 @@ color:  white;</string>
        <string>View Patients</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="tableWidgetViewPatient">
       <property name="geometry">
        <rect>
         <x>45</x>
@@ -1751,7 +1751,7 @@ color:  white;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="menuPageButton1">
+   <widget class="QPushButton" name="menuPageButton">
     <property name="geometry">
      <rect>
       <x>0</x>

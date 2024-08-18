@@ -12,15 +12,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->menuPageButton1, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
+    connect(ui->menuPageButton, &QPushButton::clicked, this, &MainWindow::on_btnMainPage_clicked);
 
-
-    connect(ui->patientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnPatientPage_clicked);
+    connect(ui->patientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnPatientPage_clicked);    
     connect(ui->addPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatient_clicked);
     connect(ui->searchPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnSearchPatient_clicked);
     connect(ui->viewPatientPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatient_clicked);
     connect(ui->submitPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnAddPatientInfo_clicked);
-    connect(ui->viewAllPatientsButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
+    connect(ui->searchPatientButton, &QPushButton::clicked, this, &MainWindow::on_btnViewPatients_clicked);
 
     connect(ui->viewAllEmergenciesButton, &QPushButton::clicked, this, &MainWindow::on_btnViewEmergencies_clicked);
 
@@ -32,9 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->submitDoctorButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctorInfo_clicked);
 
     connect(ui->emergencyPage, &QPushButton::clicked, this, &MainWindow::on_emergencyPage_clicked);
-
     connect(ui->addEmergencyInfoButton, &QPushButton::clicked, this, &MainWindow::on_btnAddEmergencyInfo_clicked);
 
+
+    connect(ui->searchPatientHealthCardButton, &QPushButton::clicked, this, &MainWindow::on_searchPatientButton_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -42,14 +42,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_btnPatientPage_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
 void MainWindow::on_btnMainPage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_btnPatientPage_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_btnAddPatient_clicked()
@@ -62,9 +62,20 @@ void MainWindow::on_btnSearchPatient_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
+void MainWindow::on_searchPatientButton_clicked()
+{
+    QString searchItem = ui->healthCardSearchLineEdit->text();
+    m_dbManager.searchPatient(ui->tableWidgetSearchPatient, searchItem);
+}
+
 void MainWindow::on_btnViewPatient_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_btnViewPatients_clicked()
+{
+    m_dbManager.viewPatient(ui->tableWidgetViewPatient);
 }
 
 void MainWindow::on_btnDoctorPage_clicked()
@@ -77,16 +88,6 @@ void MainWindow::on_btnAddDoctor_clicked()
     ui->stackedWidget->setCurrentIndex(6);
 }
 
-void MainWindow::on_btnViewPatients_clicked()
-{
-    m_dbManager.viewPatient(ui->tableWidget);
-}
-
-void MainWindow::on_btnViewEmergencies_clicked()
-{
-    m_dbManager.viewEmergencyPatient(ui->tableWidgetEmergency);
-}
-
 void MainWindow::on_searchDoctor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
@@ -95,6 +96,11 @@ void MainWindow::on_searchDoctor_clicked()
 void MainWindow::on_viewDoctor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(8);
+}
+
+void MainWindow::on_btnViewEmergencies_clicked()
+{
+    m_dbManager.viewEmergencyPatient(ui->tableWidgetEmergency);
 }
 
 void MainWindow::on_emergencyPage_clicked()
@@ -240,6 +246,3 @@ void MainWindow::on_btnAddEmergencyInfo_clicked()
     ui->medicationEmergencyLineEdit->clear();
     ui->emergencyTimeLineEdit->clear();
 }
-
-
-

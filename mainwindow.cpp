@@ -33,6 +33,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->emergencyPage, &QPushButton::clicked, this, &MainWindow::on_emergencyPage_clicked);
     connect(ui->addEmergencyInfoButton, &QPushButton::clicked, this, &MainWindow::on_btnAddEmergencyInfo_clicked);
     connect(ui->viewAllEmergenciesButton, &QPushButton::clicked, this, &MainWindow::on_btnViewEmergencies_clicked);
+
+    connect(ui->roomPageButton, &QPushButton::clicked, this, &MainWindow::on_btnRoomPage_clicked);
+    connect(ui->addRoomPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddRoom_clicked);
+    connect(ui->viewRoomPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewRooms_clicked);
+    connect(ui->viewRoomStatusPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewRoomStatus_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -104,6 +109,26 @@ void MainWindow::on_btnViewEmergencies_clicked()
 void MainWindow::on_emergencyPage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_btnRoomPage_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(10);
+}
+
+void MainWindow::on_btnAddRoom_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(11);
+}
+
+void MainWindow::on_btnViewRooms_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(12);
+}
+
+void MainWindow::on_btnViewRoomStatus_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(13);
 }
 
 void MainWindow::on_btnAddPatientInfo_clicked()
@@ -280,5 +305,10 @@ void MainWindow::on_deletePatientSearchButton_clicked()
         QMessageBox::critical(this, "Delete", "Failed to delete patient");
     }
 }
+
+
+
+
+
 
 

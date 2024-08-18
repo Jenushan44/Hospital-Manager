@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>12</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -1718,6 +1718,117 @@ color:  white;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_11">
+     <widget class="QLabel" name="label_55">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>30</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Room Manager</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addRoomPageButton">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>90</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add Room</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewRoomPageButton">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>150</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Rooms</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewRoomStatusPageButton">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>210</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Change Room Status</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_12">
+     <widget class="QLabel" name="label_56">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>30</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Add Room</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_13">
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>30</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>View Rooms</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_14">
+     <widget class="QLabel" name="label_58">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>30</y>
+        <width>401</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 24pt &quot;Sitka Small&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Change Room Status</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_27">
     <property name="geometry">
@@ -1801,6 +1912,19 @@ color:  white;</string>
     </property>
     <property name="text">
      <string>Add Emergency Patient</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="roomPageButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Room Manager</string>
     </property>
    </widget>
   </widget>

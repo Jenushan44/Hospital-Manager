@@ -39,7 +39,11 @@ private slots:
     void on_searchPatientButton_clicked();
     void on_deletePatientViewButton_clicked();
     void on_deletePatientSearchButton_clicked();
+    void on_btnRoomPage_clicked();
 
+    void on_btnAddRoom_clicked();
+    void on_btnViewRooms_clicked();
+    void on_btnViewRoomStatus_clicked();
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

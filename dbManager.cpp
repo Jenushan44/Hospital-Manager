@@ -143,6 +143,19 @@ bool DbManager::viewPatient(QTableWidget* tableWidget) {
     return true;
 }
 
+bool DbManager::deletePatient(const QString &healthCardNumber) {
+    QSqlQuery query;
+
+    query.prepare("DELETE FROM patients WHERE health_card_number = :healthCardNumber");
+    query.bindValue(":healthCardNumber", healthCardNumber);
+
+    if(!query.exec()) {
+        qDebug() << "Error: Delete Failed: " << query.lastError();
+        return false;
+    }
+    return true;
+}
+
 bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& address, const QString& phoneNumber) {
 
     QSqlQuery query;

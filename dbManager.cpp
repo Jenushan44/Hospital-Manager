@@ -268,22 +268,26 @@ bool DbManager::viewEmergencyPatient(QTableWidget* tableWidget) {
 
 
 bool DbManager::assignRoom(const QString& healthCardNumber, const QString& roomNumber) {
-    QSqlQuery checkAssignedRoomQuery;
 
-    checkAssignedRoomQuery.prepare("SELECT room_number FROM room_assignments WHERE room_number = :roomNumber AND health_card_number = :healthCardNumber");
-    checkAssignedRoomQuery.bindValue(":roomNumber", roomNumber);
-    checkAssignedRoomQuery.bindValue(":healthCardNumber", healthCardNumber);
+    QSqlQuery checkRoomQuery;
+    checkRoomQuery.prepare("SELECT status FROM rooms WHERE room_number = :roomNumber");
+    checkRoomQuery.bindValue(":roomNumber", roomNumber);
 
-    if (!checkAssignedRoomQuery.exec()) {
-        qDebug() << "Error updating room status: " << checkAssignedRoomQuery.lastError();
+    if (!checkRoomQuery.exec()) {
+        qDebug() << "Error checking room status: " << checkRoomQuery.lastError();
         return false;
     }
 
-    if (checkAssignedRoomQuery.next()) {
-        QMessageBox::information(NULL, "Room Assignment", "Room is already occupied.");
+    if (checkRoomQuery.next()) {
+        QString status = checkRoomQuery.value(0).toString();
+        if (status != "Available") {
+            QMessageBox::information(NULL, "Room Assignment", "Room is already occupied.");
+            return false;
+        }
+    } else {
+        QMessageBox::critical(NULL, "Error", "Room not found");
         return false;
     }
-
 
     QSqlQuery updatePatientQuery;
     updatePatientQuery.prepare("UPDATE patients SET room_number = :roomNumber WHERE health_card_number = :healthCardNumber");
@@ -304,6 +308,15 @@ bool DbManager::assignRoom(const QString& healthCardNumber, const QString& roomN
 
     if (!insertAssignedRoomQuery.exec()) {
         qDebug() << "Error assigning room: " << insertAssignedRoomQuery.lastError();
+        return false;
+    }
+
+    QSqlQuery updateStatusQuery;
+    updateStatusQuery.prepare("UPDATE rooms SET status = 'Occupied' WHERE room_number = :roomNumber");
+    updateStatusQuery.bindValue(":roomNumber", roomNumber);
+
+    if (!updateStatusQuery.exec()) {
+        qDebug() << "Error updating status of room: " << updateStatusQuery.lastError();
         return false;
     }
 

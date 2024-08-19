@@ -42,7 +42,7 @@ bool DbManager::searchPatient(QTableWidget* tableWidget, const QString searchIte
 
     querySearchPatient.prepare("SELECT * FROM patients WHERE health_card_number = :healthCardNumber "
                                "OR first_name LIKE :searchPattern "
-                               "OR last_name LIKE :seachPattern");
+                               "OR last_name LIKE :searchPattern");
 
     querySearchPatient.bindValue(":healthCardNumber", searchItem);
     querySearchPatient.bindValue(":searchPattern", "%" + searchItem + "%");
@@ -217,7 +217,7 @@ bool DbManager::viewEmergencyPatient(QTableWidget* tableWidget) {
         return false;
     }
 
-    tableWidget->setColumnCount(11);
+    tableWidget->setColumnCount(15);
 
     QStringList headers;
     headers << "Health Card" << "First Name" << "Last Name" << "Birthday" << "Gender" << "Blood Type" << "Emergency Contact Name" << "Emergency Contact #" << "Emergency Contact Relation" << "Emergency Reason" << "Symptoms" << "Current Medical Conditions" << "Allergies" << "Medication" << "Time of Emergency";
@@ -263,5 +263,50 @@ bool DbManager::viewEmergencyPatient(QTableWidget* tableWidget) {
 
         row++;
     }
+    return true;
+}
+
+
+bool DbManager::assignRoom(const QString& healthCardNumber, const QString& roomNumber) {
+    QSqlQuery checkAssignedRoomQuery;
+
+    checkAssignedRoomQuery.prepare("SELECT room_number FROM room_assignments WHERE room_number = :roomNumber AND health_card_number = :healthCardNumber");
+    checkAssignedRoomQuery.bindValue(":roomNumber", roomNumber);
+    checkAssignedRoomQuery.bindValue(":healthCardNumber", healthCardNumber);
+
+    if (!checkAssignedRoomQuery.exec()) {
+        qDebug() << "Error updating room status: " << checkAssignedRoomQuery.lastError();
+        return false;
+    }
+
+    if (checkAssignedRoomQuery.next()) {
+        QMessageBox::information(NULL, "Room Assignment", "Room is already occupied.");
+        return false;
+    }
+
+
+    QSqlQuery updatePatientQuery;
+    updatePatientQuery.prepare("UPDATE patients SET room_number = :roomNumber WHERE health_card_number = :healthCardNumber");
+    updatePatientQuery.bindValue(":roomNumber", roomNumber);
+    updatePatientQuery.bindValue(":healthCardNumber", healthCardNumber);
+
+    if (!updatePatientQuery.exec()) {
+        qDebug() << "Error assigning room: " << updatePatientQuery.lastError();
+        return false;
+    }
+
+    QSqlQuery insertAssignedRoomQuery;
+    insertAssignedRoomQuery.prepare("INSERT INTO room_assignments(room_number, health_card_number, assigned_date) "
+                                    "VALUES (:roomNumber, :healthCardNumber, :assignedDate)");
+    insertAssignedRoomQuery.bindValue(":roomNumber", roomNumber);
+    insertAssignedRoomQuery.bindValue(":healthCardNumber", healthCardNumber);
+    insertAssignedRoomQuery.bindValue(":assignedDate", QDate::currentDate().toString("yyyy-MM-dd"));
+
+    if (!insertAssignedRoomQuery.exec()) {
+        qDebug() << "Error assigning room: " << insertAssignedRoomQuery.lastError();
+        return false;
+    }
+
+    QMessageBox::information(NULL, "Room Assignment", "Room assigned Successfully");
     return true;
 }

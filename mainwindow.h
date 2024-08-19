@@ -1,12 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "dbManager.h"
 #include <QMainWindow>
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QMessageBox>
-#include "dbManager.h"
 #include <QString>
+#include <QSettings>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -44,6 +45,8 @@ private slots:
     void on_btnAddRoom_clicked();
     void on_btnViewRooms_clicked();
     void on_btnViewRoomStatus_clicked();
+    void on_assignRoomButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

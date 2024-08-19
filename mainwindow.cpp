@@ -38,6 +38,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->addRoomPageButton, &QPushButton::clicked, this, &MainWindow::on_btnAddRoom_clicked);
     connect(ui->viewRoomPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewRooms_clicked);
     connect(ui->viewRoomStatusPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewRoomStatus_clicked);
+
+    connect(ui->assignRoomButton, &QPushButton::clicked, this, &MainWindow::on_assignRoomButton_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -306,9 +308,15 @@ void MainWindow::on_deletePatientSearchButton_clicked()
     }
 }
 
+void MainWindow::on_assignRoomButton_clicked()
+{
+    QString healthCardNumber = ui->assignHealthCardNumberLineEdit->text();
+    QString roomNumber = ui->roomNumberLineEdit->text();
 
-
-
-
-
+    if (m_dbManager.assignRoom(healthCardNumber, roomNumber)) {
+        qDebug() << "Room successfully assigned";
+    } else {
+        qDebug() << "Failed to assign room";
+    }
+}
 

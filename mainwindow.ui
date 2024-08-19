@@ -1809,13 +1809,13 @@ color:  white;</string>
       <property name="geometry">
        <rect>
         <x>330</x>
-        <y>80</y>
+        <y>90</y>
         <width>241</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="tableWidgetRooms">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -1829,9 +1829,9 @@ color:  white;</string>
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>80</y>
-        <width>80</width>
-        <height>24</height>
+        <y>110</y>
+        <width>91</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -1857,8 +1857,21 @@ color:  white;</string>
         <x>330</x>
         <y>130</y>
         <width>241</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewRoomTableButton">
+      <property name="geometry">
+       <rect>
+        <x>599</x>
+        <y>560</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Rooms</string>
       </property>
      </widget>
     </widget>

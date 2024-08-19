@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->viewRoomStatusPageButton, &QPushButton::clicked, this, &MainWindow::on_btnViewRoomStatus_clicked);
 
     connect(ui->assignRoomButton, &QPushButton::clicked, this, &MainWindow::on_assignRoomButton_clicked);
+    connect(ui->viewRoomTableButton, &QPushButton::clicked, this, &MainWindow::on_viewRoomTable_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -131,6 +132,11 @@ void MainWindow::on_btnViewRooms_clicked()
 void MainWindow::on_btnViewRoomStatus_clicked()
 {
     ui->stackedWidget->setCurrentIndex(13);
+}
+
+void MainWindow::on_viewRoomTable_clicked()
+{
+    m_dbManager.viewRooms(ui->tableWidgetRooms);
 }
 
 void MainWindow::on_btnAddPatientInfo_clicked()
@@ -319,4 +325,40 @@ void MainWindow::on_assignRoomButton_clicked()
         qDebug() << "Failed to assign room";
     }
 }
+
+
+bool DbManager::viewRooms(QTableWidget* tableWidget) {
+    QSqlQuery query;
+
+    query.prepare("SELECT * FROM rooms");
+
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setColumnCount(3);
+    QStringList headers;
+    headers << "Room Number" << "Room Type" << "Status";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString roomNumber = query.value("room_number").toString();
+        QString roomType = query.value("room_type").toString();
+        QString roomStatus = query.value("status").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(roomNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(roomType));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(roomStatus));
+
+        row++;
+    }
+    return true;
+}
+
 

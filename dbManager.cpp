@@ -38,17 +38,17 @@ bool DbManager::addPatient(const QString& addHealthCardNumber, const QString& ad
 }
 
 bool DbManager::searchPatient(QTableWidget* tableWidget, const QString searchItem) {
-    QSqlQuery querySearchPatient;
+    QSqlQuery query;
 
-    querySearchPatient.prepare("SELECT * FROM patients WHERE health_card_number = :healthCardNumber "
+    query.prepare("SELECT * FROM patients WHERE health_card_number = :healthCardNumber "
                                "OR first_name LIKE :searchPattern "
                                "OR last_name LIKE :searchPattern");
 
-    querySearchPatient.bindValue(":healthCardNumber", searchItem);
-    querySearchPatient.bindValue(":searchPattern", "%" + searchItem + "%");
+    query.bindValue(":healthCardNumber", searchItem);
+    query.bindValue(":searchPattern", "%" + searchItem + "%");
 
-    if (!querySearchPatient.exec()) {
-        qDebug() << "Error: search failed: " << querySearchPatient.lastError();
+    if (!query.exec()) {
+        qDebug() << "Error: search failed: " << query.lastError();
         return false;
     }
 
@@ -61,20 +61,20 @@ bool DbManager::searchPatient(QTableWidget* tableWidget, const QString searchIte
     tableWidget->setRowCount(0);
     int row = 0;
 
-    while(querySearchPatient.next()) {
+    while(query.next()) {
         tableWidget->insertRow(row);
 
-        QString healthCardNumber = querySearchPatient.value("health_card_number").toString();
-        QString firstName = querySearchPatient.value("first_name").toString();
-        QString lastName = querySearchPatient.value("last_name").toString();
-        QString dateOfBirth = querySearchPatient.value("date_of_birth").toString();
-        QString gender = querySearchPatient.value("gender").toString();
-        QString bloodType = querySearchPatient.value("blood_type").toString();
-        QString address = querySearchPatient.value("address").toString();
-        QString phoneNumber = querySearchPatient.value("phone_number").toString();
-        QString emailAddress = querySearchPatient.value("email_address").toString();
-        QString insuranceCompany = querySearchPatient.value("insurance_company").toString();
-        QString primaryCarePhysician = querySearchPatient.value("primary_care_physician").toString();
+        QString healthCardNumber = query.value("health_card_number").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString bloodType = query.value("blood_type").toString();
+        QString address = query.value("address").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+        QString emailAddress = query.value("email_address").toString();
+        QString insuranceCompany = query.value("insurance_company").toString();
+        QString primaryCarePhysician = query.value("primary_care_physician").toString();
 
         tableWidget->setItem(row, 0, new QTableWidgetItem(healthCardNumber));
         tableWidget->setItem(row, 1, new QTableWidgetItem(firstName));
@@ -179,6 +179,60 @@ bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& speciali
         qDebug() << "Error: Doctor not added: " << query.lastError();
         return false;
     }
+}
+
+bool DbManager::searchDoctor(QTableWidget* tableWidget, const QString searchItem) {
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM doctors WHERE doctor_id = :doctorIdNumber "
+                               "OR first_name LIKE :searchPattern "
+                               "OR last_name LIKE :searchPattern");
+
+    query.bindValue(":doctorIdNumber", searchItem);
+    query.bindValue(":searchPattern", "%" + searchItem + "%");
+
+    if (!query.exec()) {
+        qDebug() << "Error: search failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setColumnCount(10);
+
+    QStringList headers;
+    headers << "Doctor Id" << "Specialization" << "Years Of Experience" << "First Name" << "Last name" << "Birthday" << "Gender" << "Phone Number" << "Email" << "Address";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString doctorIdNumber = query.value("doctor_id").toString();
+        QString specialization = query.value("specialization").toString();
+        QString yearsOfExperience = query.value("years_experience").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+        QString email = query.value("email").toString();
+        QString address = query.value("address").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(doctorIdNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(specialization));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(yearsOfExperience));
+        tableWidget->setItem(row, 3, new QTableWidgetItem(firstName));
+        tableWidget->setItem(row, 4, new QTableWidgetItem(lastName));
+        tableWidget->setItem(row, 5, new QTableWidgetItem(dateOfBirth));
+        tableWidget->setItem(row, 6, new QTableWidgetItem(gender));
+        tableWidget->setItem(row, 7, new QTableWidgetItem(phoneNumber));
+        tableWidget->setItem(row, 8, new QTableWidgetItem(email));
+        tableWidget->setItem(row, 9, new QTableWidgetItem(address));
+
+        row++;
+    }
+    return true;
 }
 
 bool DbManager::addEmergency(const QString& healthCardNumber, const QString& firstName, const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& emergencyContactName, const QString& emergencyContactRelation, const QString& emergencyContactNumber, const QString& emergencyReason, const QString& symptoms, const QString& currentMedicalConditions, const QString& allergies, const QString& medication, const QString& emergencyTime) {

@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -1313,7 +1313,7 @@ color:  white;</string>
        <string>Please enter doctors identification number:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="doctorIdSearchLineEdit">
       <property name="geometry">
        <rect>
         <x>330</x>
@@ -1323,7 +1323,7 @@ color:  white;</string>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="searchDoctorIdButton">
       <property name="geometry">
        <rect>
         <x>650</x>
@@ -1336,7 +1336,7 @@ color:  white;</string>
        <string>Search</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_2">
+     <widget class="QTableWidget" name="tableWidgetSearchDoctor">
       <property name="geometry">
        <rect>
         <x>80</x>

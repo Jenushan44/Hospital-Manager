@@ -41,15 +41,13 @@ private slots:
     void on_deletePatientViewButton_clicked();
     void on_deletePatientSearchButton_clicked();
     void on_btnRoomPage_clicked();
-
     void on_btnAddRoom_clicked();
     void on_btnViewRooms_clicked();
     void on_btnViewRoomStatus_clicked();
     void on_assignRoomButton_clicked();
-
     void on_viewRoomTable_clicked();
-
     void on_releaseRoomButton_clicked();
+    void on_searchDoctorButton_clicked();
 
 private:
     Ui::MainWindow *ui;

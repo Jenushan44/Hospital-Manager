@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->viewAllDoctorsButton, &QPushButton::clicked, this, &MainWindow::on_viewDoctor_clicked);
     connect(ui->submitDoctorButton, &QPushButton::clicked, this, &MainWindow::on_btnAddDoctorInfo_clicked);
     connect(ui->searchDoctorIdButton, &QPushButton::clicked, this, &MainWindow::on_searchDoctorButton_clicked);
+    connect(ui->viewDoctorsButton, &QPushButton::clicked, this, &MainWindow::on_btnViewDoctors_clicked);
 
     connect(ui->emergencyPage, &QPushButton::clicked, this, &MainWindow::on_emergencyPage_clicked);
     connect(ui->addEmergencyInfoButton, &QPushButton::clicked, this, &MainWindow::on_btnAddEmergencyInfo_clicked);
@@ -146,6 +147,11 @@ void MainWindow::on_searchDoctorButton_clicked()
 {
     QString searchItem = ui->doctorIdSearchLineEdit->text();
     m_dbManager.searchDoctor(ui->tableWidgetSearchDoctor, searchItem);
+}
+
+void MainWindow::on_btnViewDoctors_clicked()
+{
+    m_dbManager.viewDoctor(ui->tableWidgetViewDoctor);
 }
 
 
@@ -365,6 +371,9 @@ void MainWindow::on_releaseRoomButton_clicked()
     ui->roomNumberReleaseLineEdit->clear();
 
 }
+
+
+
 
 
 

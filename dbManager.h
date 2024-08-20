@@ -26,6 +26,7 @@ public:
     bool assignRoom(const QString& healthCardNumber, const QString& roomNumber);
     bool viewRooms(QTableWidget* tableWidget);
     bool changeRoomStatus(const QString& healthCardNumber, const QString& roomNumber);
+    bool viewDoctor(QTableWidget* tableWidget);
 
 private:
     QSqlDatabase m_db;

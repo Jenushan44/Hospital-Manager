@@ -94,10 +94,10 @@ bool DbManager::searchPatient(QTableWidget* tableWidget, const QString searchIte
 }
 
 bool DbManager::viewPatient(QTableWidget* tableWidget) {
-    QSqlQuery queryView("SELECT * FROM patients");
+    QSqlQuery query("SELECT * FROM patients");
 
-    if (!queryView.exec()) {
-        qDebug() << "Error: execution failed: " << queryView.lastError();
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
         return false;
     }
 
@@ -110,20 +110,20 @@ bool DbManager::viewPatient(QTableWidget* tableWidget) {
     tableWidget->setRowCount(0);
     int row = 0;
 
-    while(queryView.next()) {
+    while(query.next()) {
         tableWidget->insertRow(row);
 
-        QString healthCardNumber = queryView.value("health_card_number").toString();
-        QString firstName = queryView.value("first_name").toString();
-        QString lastName = queryView.value("last_name").toString();
-        QString dateOfBirth = queryView.value("date_of_birth").toString();
-        QString gender = queryView.value("gender").toString();
-        QString bloodType = queryView.value("blood_type").toString();
-        QString address = queryView.value("address").toString();
-        QString phoneNumber = queryView.value("phone_number").toString();
-        QString emailAddress = queryView.value("email_address").toString();
-        QString insuranceCompany = queryView.value("insurance_company").toString();
-        QString primaryCarePhysician = queryView.value("primary_care_physician").toString();
+        QString healthCardNumber = query.value("health_card_number").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString bloodType = query.value("blood_type").toString();
+        QString address = query.value("address").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+        QString emailAddress = query.value("email_address").toString();
+        QString insuranceCompany = query.value("insurance_company").toString();
+        QString primaryCarePhysician = query.value("primary_care_physician").toString();
 
 
         tableWidget->setItem(row, 0, new QTableWidgetItem(healthCardNumber));
@@ -183,6 +183,8 @@ bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& speciali
 
 bool DbManager::searchDoctor(QTableWidget* tableWidget, const QString searchItem) {
 
+    tableWidget->setRowCount(0);
+
     QSqlQuery query;
     query.prepare("SELECT * FROM doctors WHERE doctor_id = :doctorIdNumber "
                                "OR first_name LIKE :searchPattern "
@@ -193,6 +195,53 @@ bool DbManager::searchDoctor(QTableWidget* tableWidget, const QString searchItem
 
     if (!query.exec()) {
         qDebug() << "Error: search failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setColumnCount(10);
+
+    QStringList headers;
+    headers << "Doctor Id" << "Specialization" << "Years Of Experience" << "First Name" << "Last name" << "Birthday" << "Gender" << "Phone Number" << "Email" << "Address";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString doctorIdNumber = query.value("doctor_id").toString();
+        QString specialization = query.value("specialization").toString();
+        QString yearsOfExperience = query.value("years_experience").toString();
+        QString firstName = query.value("first_name").toString();
+        QString lastName = query.value("last_name").toString();
+        QString dateOfBirth = query.value("date_of_birth").toString();
+        QString gender = query.value("gender").toString();
+        QString phoneNumber = query.value("phone_number").toString();
+        QString email = query.value("email").toString();
+        QString address = query.value("address").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(doctorIdNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(specialization));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(yearsOfExperience));
+        tableWidget->setItem(row, 3, new QTableWidgetItem(firstName));
+        tableWidget->setItem(row, 4, new QTableWidgetItem(lastName));
+        tableWidget->setItem(row, 5, new QTableWidgetItem(dateOfBirth));
+        tableWidget->setItem(row, 6, new QTableWidgetItem(gender));
+        tableWidget->setItem(row, 7, new QTableWidgetItem(phoneNumber));
+        tableWidget->setItem(row, 8, new QTableWidgetItem(email));
+        tableWidget->setItem(row, 9, new QTableWidgetItem(address));
+
+        row++;
+    }
+    return true;
+}
+
+bool DbManager::viewDoctor(QTableWidget* tableWidget) {
+
+    QSqlQuery query("SELECT * FROM doctors");
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
         return false;
     }
 
@@ -266,10 +315,10 @@ bool DbManager::addEmergency(const QString& healthCardNumber, const QString& fir
 }
 
 bool DbManager::viewEmergencyPatient(QTableWidget* tableWidget) {
-    QSqlQuery queryViewEmergency("SELECT * FROM emergencies");
+    QSqlQuery queryEmergency("SELECT * FROM emergencies");
 
-    if (!queryViewEmergency.exec()) {
-        qDebug() << "Error: execution failed" << queryViewEmergency.lastError();
+    if (!queryEmergency.exec()) {
+        qDebug() << "Error: execution failed" << queryEmergency.lastError();
         return false;
     }
 
@@ -282,24 +331,24 @@ bool DbManager::viewEmergencyPatient(QTableWidget* tableWidget) {
     tableWidget->setRowCount(0);
     int row = 0;
 
-    while (queryViewEmergency.next()) {
+    while (queryEmergency.next()) {
         tableWidget->insertRow(row);
 
-        QString healthCardNumber = queryViewEmergency.value("health_card_number").toString();
-        QString firstName = queryViewEmergency.value("first_name").toString();
-        QString lastName = queryViewEmergency.value("last_name").toString();
-        QString birthday = queryViewEmergency.value("date_of_birth").toString();
-        QString gender = queryViewEmergency.value("gender").toString();
-        QString bloodType = queryViewEmergency.value("blood_type").toString();
-        QString emergencyContactNumber = queryViewEmergency.value("emergency_contact_number").toString();
-        QString emergencyContactRelation = queryViewEmergency.value("emergency_contact_relation").toString();
-        QString emergencyContactName = queryViewEmergency.value("emergency_contact_name").toString();
-        QString emergencyReason = queryViewEmergency.value("emergency_reason").toString();
-        QString symptoms = queryViewEmergency.value("symptoms").toString();
-        QString currentMedicalConditions = queryViewEmergency.value("current_medical_conditions").toString();
-        QString allergies = queryViewEmergency.value("allergies").toString();
-        QString medication = queryViewEmergency.value("medication").toString();
-        QString emergencyTime = queryViewEmergency.value("emergency_time").toString();
+        QString healthCardNumber = queryEmergency.value("health_card_number").toString();
+        QString firstName = queryEmergency.value("first_name").toString();
+        QString lastName = queryEmergency.value("last_name").toString();
+        QString birthday = queryEmergency.value("date_of_birth").toString();
+        QString gender = queryEmergency.value("gender").toString();
+        QString bloodType = queryEmergency.value("blood_type").toString();
+        QString emergencyContactNumber = queryEmergency.value("emergency_contact_number").toString();
+        QString emergencyContactRelation = queryEmergency.value("emergency_contact_relation").toString();
+        QString emergencyContactName = queryEmergency.value("emergency_contact_name").toString();
+        QString emergencyReason = queryEmergency.value("emergency_reason").toString();
+        QString symptoms = queryEmergency.value("symptoms").toString();
+        QString currentMedicalConditions = queryEmergency.value("current_medical_conditions").toString();
+        QString allergies = queryEmergency.value("allergies").toString();
+        QString medication = queryEmergency.value("medication").toString();
+        QString emergencyTime = queryEmergency.value("emergency_time").toString();
 
         tableWidget->setItem(row, 0, new QTableWidgetItem(healthCardNumber));
         tableWidget->setItem(row, 1, new QTableWidgetItem(firstName));

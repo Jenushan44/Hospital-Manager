@@ -49,6 +49,8 @@ private slots:
     void on_releaseRoomButton_clicked();
     void on_searchDoctorButton_clicked();
 
+    void on_btnViewDoctors_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

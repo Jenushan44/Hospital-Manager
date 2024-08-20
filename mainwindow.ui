@@ -27,7 +27,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_29">
@@ -1364,7 +1364,7 @@ color:  white;</string>
        <string>View Doctors</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_3">
+     <widget class="QTableWidget" name="tableWidgetViewDoctor">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -1374,7 +1374,7 @@ color:  white;</string>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="viewDoctorsButton">
       <property name="geometry">
        <rect>
         <x>620</x>

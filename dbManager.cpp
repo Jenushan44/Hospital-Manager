@@ -323,3 +323,69 @@ bool DbManager::assignRoom(const QString& healthCardNumber, const QString& roomN
     QMessageBox::information(NULL, "Room Assignment", "Room assigned Successfully");
     return true;
 }
+
+bool DbManager::viewRooms(QTableWidget* tableWidget) {
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM rooms");
+
+    if (!query.exec()) {
+        qDebug() << "Error: execution failed: " << query.lastError();
+        return false;
+    }
+
+    tableWidget->setColumnCount(3);
+    QStringList headers;
+    headers << "Room Number" << "Room Type" << "Status";
+    tableWidget->setHorizontalHeaderLabels(headers);
+
+    tableWidget->setRowCount(0);
+    int row = 0;
+
+    while(query.next()) {
+        tableWidget->insertRow(row);
+
+        QString roomNumber = query.value("room_number").toString();
+        QString roomType = query.value("room_type").toString();
+        QString roomStatus = query.value("status").toString();
+
+        tableWidget->setItem(row, 0, new QTableWidgetItem(roomNumber));
+        tableWidget->setItem(row, 1, new QTableWidgetItem(roomType));
+        tableWidget->setItem(row, 2, new QTableWidgetItem(roomStatus));
+
+        row++;
+    }
+    return true;
+}
+
+bool DbManager::changeRoomStatus(const QString& healthCardNumber, const QString& roomNumber) {
+
+    QSqlQuery updatePatientQuery;
+    updatePatientQuery.prepare("UPDATE patients SET room_number = NULL WHERE health_card_number = :healthCardNumber");
+    updatePatientQuery.bindValue(":healthCardNumber", healthCardNumber);
+
+    if (!updatePatientQuery.exec()) {
+        qDebug() << "Error updating patients record: " << updatePatientQuery.lastError();
+        return false;
+    }
+
+    QSqlQuery updateRoomQuery;
+    updateRoomQuery.prepare("UPDATE rooms SET status = 'Available' WHERE room_number = :roomNumber");
+    updateRoomQuery.bindValue(":roomNumber", roomNumber);
+
+    if (!updateRoomQuery.exec()) {
+        qDebug() << "Error updating room status: " << updateRoomQuery.lastError();
+        return false;
+    }
+
+    QSqlQuery deleteAssignedRoomQuery;
+    deleteAssignedRoomQuery.prepare("DELETE FROM room_assignments WHERE room_number = :roomNumber AND health_card_number = :healthCardNumber");
+    deleteAssignedRoomQuery.bindValue(":roomNumber", roomNumber);
+    deleteAssignedRoomQuery.bindValue(":healthCardNumber", healthCardNumber);
+
+    if (!deleteAssignedRoomQuery.exec()) {
+        qDebug() << "Error deleting room assignments: " << deleteAssignedRoomQuery.lastError();
+        return false;
+    }
+    return true;
+}

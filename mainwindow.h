@@ -49,6 +49,8 @@ private slots:
 
     void on_viewRoomTable_clicked();
 
+    void on_releaseRoomButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager m_dbManager;

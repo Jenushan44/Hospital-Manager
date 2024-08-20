@@ -24,6 +24,7 @@ public:
     bool addEmergency(const QString& healthCardNumber, const QString& firstName, const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& emergencyContactName, const QString& emergencyContactRelation, const QString& emergencyContactNumber, const QString& emergencyReason, const QString& symptoms, const QString& currentMedicalConditions, const QString& allergies, const QString& medication, const QString& emergencyTime);
     bool assignRoom(const QString& healthCardNumber, const QString& roomNumber);
     bool viewRooms(QTableWidget* tableWidget);
+    bool changeRoomStatus(const QString& healthCardNumber, const QString& roomNumber);
 
 private:
     QSqlDatabase m_db;

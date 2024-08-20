@@ -41,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->assignRoomButton, &QPushButton::clicked, this, &MainWindow::on_assignRoomButton_clicked);
     connect(ui->viewRoomTableButton, &QPushButton::clicked, this, &MainWindow::on_viewRoomTable_clicked);
+
+    connect(ui->releaseRoomButton, &QPushButton::clicked, this, &MainWindow::on_releaseRoomButton_clicked);
+
 }
 
 MainWindow::~MainWindow()
@@ -327,38 +330,20 @@ void MainWindow::on_assignRoomButton_clicked()
 }
 
 
-bool DbManager::viewRooms(QTableWidget* tableWidget) {
-    QSqlQuery query;
 
-    query.prepare("SELECT * FROM rooms");
+void MainWindow::on_releaseRoomButton_clicked()
+{
+    QString healthCardNumber = ui->healthCardNumberReleaseLineEdit->text();
+    QString roomNumber = ui->roomNumberReleaseLineEdit->text();
 
-    if (!query.exec()) {
-        qDebug() << "Error: execution failed: " << query.lastError();
-        return false;
+    if (healthCardNumber.isEmpty() || roomNumber.isEmpty()) {
+        QMessageBox::warning(this, "Input Error", "Please provide both the Health Card Number and Room Number");
     }
 
-    tableWidget->setColumnCount(3);
-    QStringList headers;
-    headers << "Room Number" << "Room Type" << "Status";
-    tableWidget->setHorizontalHeaderLabels(headers);
-
-    tableWidget->setRowCount(0);
-    int row = 0;
-
-    while(query.next()) {
-        tableWidget->insertRow(row);
-
-        QString roomNumber = query.value("room_number").toString();
-        QString roomType = query.value("room_type").toString();
-        QString roomStatus = query.value("status").toString();
-
-        tableWidget->setItem(row, 0, new QTableWidgetItem(roomNumber));
-        tableWidget->setItem(row, 1, new QTableWidgetItem(roomType));
-        tableWidget->setItem(row, 2, new QTableWidgetItem(roomStatus));
-
-        row++;
+    if (m_dbManager.changeRoomStatus(healthCardNumber, roomNumber)) {
+        QMessageBox::information(this, "Success", "Room successfully released");
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to release room");
     }
-    return true;
 }
-
 

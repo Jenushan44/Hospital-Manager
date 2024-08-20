@@ -20,7 +20,7 @@ public:
     bool deletePatient(const QString &healthCardNumber);
     bool viewEmergencyPatient(QTableWidget* tableWidget);
     bool searchPatient(QTableWidget* tableWidget, const QString searchItem);
-    bool addDoctor(const QString& doctorIdNumber, const QString& firstName, const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& address, const QString& phoneNumber);
+    bool addDoctor(const QString& doctorIdNumber, const QString& specialization, const QString& yearsOfExperience, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& phoneNumber, const QString& email, const QString& address);
     bool addEmergency(const QString& healthCardNumber, const QString& firstName, const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& emergencyContactName, const QString& emergencyContactRelation, const QString& emergencyContactNumber, const QString& emergencyReason, const QString& symptoms, const QString& currentMedicalConditions, const QString& allergies, const QString& medication, const QString& emergencyTime);
     bool assignRoom(const QString& healthCardNumber, const QString& roomNumber);
     bool viewRooms(QTableWidget* tableWidget);

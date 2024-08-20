@@ -41,7 +41,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->assignRoomButton, &QPushButton::clicked, this, &MainWindow::on_assignRoomButton_clicked);
     connect(ui->viewRoomTableButton, &QPushButton::clicked, this, &MainWindow::on_viewRoomTable_clicked);
-
     connect(ui->releaseRoomButton, &QPushButton::clicked, this, &MainWindow::on_releaseRoomButton_clicked);
 
 }
@@ -192,34 +191,41 @@ void MainWindow::on_btnAddPatientInfo_clicked()
 void MainWindow::on_btnAddDoctorInfo_clicked()
 {
     QString doctorIdNumber = ui->doctorIdNumberLineEdit->text();
+    QString specialization = ui->specializationLineEdit->text();
+    QString yearsOfExperience = ui->yearsOfExperienceLineEdit->text();
     QString firstName = ui->firstNameDoctorLineEdit->text();
     QString lastName = ui->lastNameDoctorLineEdit->text();
     QString dateOfBirth = ui->dateOfBirthDoctorLineEdit->text();
     QString gender = ui->genderDoctorLineEdit->text();
-    QString bloodType = ui->bloodTypeDoctorLineEdit->text();
-    QString address = ui->addressDoctorLineEdit->text();
     QString phoneNumber = ui->phoneNumberDoctorLineEdit->text();
+    QString email = ui->emailDoctorLineEdit->text();
+    QString address = ui->addressDoctorLineEdit->text();
 
     qDebug() << "Doctor Id Number: " << doctorIdNumber;
+    qDebug() << "Specialization: " << specialization;
+    qDebug() << "Years Of Experience: " << yearsOfExperience;
     qDebug() << "First name: " << firstName;
     qDebug() << "Last name: " << lastName;
     qDebug() << "Date of Birth: " << dateOfBirth;
     qDebug() << "Gender: " << gender;
-    qDebug() << "Address: " << address;
     qDebug() << "Phone Number: " << phoneNumber;
+    qDebug() << "Email: " << email;
+    qDebug() << "Address: " << address;
 
-    if (m_dbManager.addDoctor(doctorIdNumber, firstName, lastName, dateOfBirth, gender, bloodType, address, phoneNumber)) {
+    if (m_dbManager.addDoctor(doctorIdNumber, specialization, yearsOfExperience, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address)) {
         QMessageBox::information(this, "Success", "Doctor successfully added!");
     } else {
         QMessageBox::warning(this, "Failiure", "Failed to add doctor");
     }
 
     ui->doctorIdNumberLineEdit->clear();
+    ui->specializationLineEdit->clear();
+    ui->yearsOfExperienceLineEdit->clear();
     ui->firstNameDoctorLineEdit->clear();
     ui->lastNameDoctorLineEdit->clear();
     ui->dateOfBirthDoctorLineEdit->clear();
     ui->genderDoctorLineEdit->clear();
-    ui->bloodTypeDoctorLineEdit->clear();
+    ui->emailDoctorLineEdit->clear();
     ui->addressDoctorLineEdit->clear();
     ui->phoneNumberDoctorLineEdit->clear();
 }
@@ -327,9 +333,10 @@ void MainWindow::on_assignRoomButton_clicked()
     } else {
         qDebug() << "Failed to assign room";
     }
+
+    ui->assignHealthCardNumberLineEdit->clear();
+    ui->roomNumberLineEdit->clear();
 }
-
-
 
 void MainWindow::on_releaseRoomButton_clicked()
 {
@@ -345,5 +352,9 @@ void MainWindow::on_releaseRoomButton_clicked()
     } else {
         QMessageBox::critical(this, "Error", "Failed to release room");
     }
+
+    ui->healthCardNumberReleaseLineEdit->clear();
+    ui->roomNumberReleaseLineEdit->clear();
+
 }
 

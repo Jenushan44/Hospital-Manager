@@ -156,19 +156,21 @@ bool DbManager::deletePatient(const QString &healthCardNumber) {
     return true;
 }
 
-bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& bloodType, const QString& address, const QString& phoneNumber) {
+bool DbManager::addDoctor(const QString& doctorIdNumber, const QString& specialization, const QString& yearsOfExperience, const QString& firstName,  const QString& lastName, const QString& dateOfBirth, const QString& gender, const QString& phoneNumber, const QString& email, const QString& address) {
 
     QSqlQuery query;
-    query.prepare("INSERT INTO doctors (doctor_id_number, first_name,  last_name, date_of_birth, gender, blood_type, address, phone_number)"
-                  "VALUES (:doctorIdNumber, :firstName, :lastName, :dateOfBirth, :gender, :bloodType, :address, :phoneNumber)");
+    query.prepare("INSERT INTO doctors (doctor_id, specialization, years_experience, first_name,  last_name, date_of_birth, gender, phone_number, email, address)"
+                  "VALUES (:doctorIdNumber, :specialization, :yearsOfExperience, :firstName, :lastName, :dateOfBirth, :gender, :phoneNumber, :email, :address)");
     query.bindValue(":doctorIdNumber", doctorIdNumber);
+    query.bindValue(":specialization", specialization);
+    query.bindValue(":yearsOfExperience", yearsOfExperience);
     query.bindValue(":firstName", firstName);
     query.bindValue(":lastName", lastName);
     query.bindValue(":dateOfBirth", dateOfBirth);
     query.bindValue(":gender", gender);
-    query.bindValue(":bloodType", bloodType);
-    query.bindValue(":address", address);
     query.bindValue(":phoneNumber", phoneNumber);
+    query.bindValue(":email", email);
+    query.bindValue(":address", address);
 
     if(query.exec()) {
         qDebug() << "Doctor added successfully";
